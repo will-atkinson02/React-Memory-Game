@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from './Card'
 
-export default function GameBoard()
+export default function GameBoard({ incrementAttempts })
 {   
     const colours = [
         "bg-red-500",
@@ -46,7 +46,8 @@ export default function GameBoard()
         setFlipped([...flipped, card.id])
     }
 
-    useEffect(() => {
+    useEffect(() => 
+    {
         setCards(prevCards => 
             prevCards.map(card => 
                 flipped.includes(card.id) ? { ...card, isFlipped: true} : card
@@ -85,6 +86,7 @@ export default function GameBoard()
             ) 
         }
         setFlipped([])
+        incrementAttempts();
     }
 
     async function testSingleMatch()
@@ -107,9 +109,15 @@ export default function GameBoard()
 
     return (
         <>
-            <div className="grid grid-cols-8 grid-rows-3 p-2 border-2 border-black">
+            <div className="grid grid-cols-8 grid-rows-3 p-2 border-2 border-black bg-gray-200">
                 {cards.map((card) => (
-                    <Card key={card.id} id={card.id} colour={card.colour} isFlipped={card.isFlipped} onClick={handleCardClicked} ></Card>
+                    <Card 
+                        key={card.id} 
+                        id={card.id} 
+                        colour={card.colour} 
+                        isFlipped={card.isFlipped} 
+                        matched={card.matched} 
+                        onClick={handleCardClicked} ></Card>
                 ))}
             </div>
         </>
