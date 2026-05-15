@@ -1,0 +1,18 @@
+.card-back {
+  background-color: white;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      #dc2626 0,
+      #dc2626 4px,
+      transparent 4px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      #dc2626 0,
+      #dc2626 4px,
+      transparent 4px,
+      transparent 8px
+    );
+}
