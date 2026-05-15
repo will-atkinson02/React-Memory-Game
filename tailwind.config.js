@@ -11,6 +11,9 @@ export default {
         '14': 'repeat(14, minmax(0, 1fr))',
         '15': 'repeat(15, minmax(0, 1fr))'
       },
+      fontFamily: {
+        sancreek: ["Sancreek", "serif"]
+      }
     },
   },
   plugins: [

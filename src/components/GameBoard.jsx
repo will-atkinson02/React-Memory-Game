@@ -139,7 +139,7 @@ export default function GameBoard({ incrementAttempts, finishGame })
 
     return (
         <>
-            <div className="grid grid-cols-4 grid-rows-3 p-2 border-2 border-black bg-gray-200">
+            <div className="grid grid-cols-4 grid-rows-3 p-2 border-2 border-black bg-amber-700">
                 {cards.map((card) => (
                     <Card 
                         key={card.id} 

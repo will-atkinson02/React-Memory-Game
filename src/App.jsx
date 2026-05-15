@@ -1,4 +1,5 @@
 import "./index.css"
+import "./styles/animations.css"
 import GameBoard from "./components/GameBoard"
 import { useState } from "react"
 
@@ -21,15 +22,16 @@ function App() {
   function finishGame()
   {
     setHasWon(true)
+    console.log(`You won in ${attempts} attempts`)
     setIsPlaying(false)
     setAttempts(0)
   }
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
-        <div className={`absolute top-8 ${isPlaying ? "visible" : "invisible"}`}>Attempts: {attempts}</div>
-        {isPlaying ? <GameBoard incrementAttempts={incrementAttempts} finishGame={finishGame}></GameBoard> : <div onClick={startGame}>Click to Play</div>}
+      <div className="flex justify-center items-center h-screen bg-yellow-200">
+        <div className={`font-sancreek text-xl absolute top-8 ${isPlaying ? "visible" : "invisible"}`}>Attempts: {attempts}</div>
+        {isPlaying ? <GameBoard incrementAttempts={incrementAttempts} finishGame={finishGame}></GameBoard> : <div className="font-sancreek text-5xl cursor-pointer yoyo" onClick={startGame}>Click to Play</div>}
       </div>
     </>
   )

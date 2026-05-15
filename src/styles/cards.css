@@ -3,16 +3,16 @@
   background-image:
     repeating-linear-gradient(
       45deg,
-      #dc2626 0,
-      #dc2626 4px,
-      transparent 4px,
-      transparent 8px
+      #5d5df0 0,
+      #5d5df0 5px,
+      transparent 5px,
+      transparent 10px
     ),
     repeating-linear-gradient(
       -45deg,
-      #dc2626 0,
-      #dc2626 4px,
-      transparent 4px,
-      transparent 8px
+      #5d5df0 0,
+      #5d5df0 5px,
+      transparent 5px,
+      transparent 10px
     );
 }
