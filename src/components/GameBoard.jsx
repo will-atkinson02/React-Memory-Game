@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import Card from './Card'
+import { delay } from "../utils/delay.js"
 
 export default function GameBoard({ incrementAttempts, finishGame })
 {   
@@ -76,11 +77,6 @@ export default function GameBoard({ incrementAttempts, finishGame })
     {
         checkWin()
     }, [cards])
-
-    function delay(duration)
-    {
-        return new Promise(resolve => setTimeout(resolve, duration))
-    }
 
     async function checkMatch()
     {
