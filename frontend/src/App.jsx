@@ -58,6 +58,11 @@ function App() {
     setAttempts(0)
   }
 
+  function doLogin()
+  {
+    setShowLoginModal(false)
+  }
+
   let screen
   if (!isPlaying && !hasWon)
   {
@@ -74,7 +79,7 @@ function App() {
 
   return (
     <>
-      {showLoginModal && <LoginModal></LoginModal>}
+      {showLoginModal && <LoginModal doLogin={doLogin}></LoginModal>}
       <div className="flex justify-center items-center h-screen bg-yellow-200">
         <div className={`font-sancreek text-xl absolute top-8 ${isPlaying ? "visible" : "invisible"}`}>Attempts: {attempts}</div>
         {screen} 
