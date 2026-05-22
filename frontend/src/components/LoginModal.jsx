@@ -13,7 +13,7 @@ export default function LoginModal({ doLogin })
 
         try 
         {
-            const res = await fetch("http://localhost:3001/api/login", 
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, 
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export default function LoginModal({ doLogin })
 
         try 
         {
-            const res = await fetch("http://localhost:3001/api/register", 
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, 
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

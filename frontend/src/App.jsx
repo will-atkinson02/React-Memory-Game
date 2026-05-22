@@ -35,7 +35,7 @@ function App() {
 
     try 
     {
-      const res = await fetch("http://localhost:3001/api/score", 
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/score`, 
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
