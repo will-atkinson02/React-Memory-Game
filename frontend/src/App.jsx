@@ -4,6 +4,9 @@ import GameBoard from "./components/GameBoard"
 import { useRef, useState } from "react"
 import { delay } from "./utils/delay.js"
 import LoginModal from "./components/LoginModal.jsx"
+import NavBar from "./components/NavBar.jsx"
+import GameName from "./components/GameName.jsx"
+import Score from "./components/Score.jsx"
 
 function App() {
 
@@ -63,6 +66,11 @@ function App() {
     setShowLoginModal(false)
   }
 
+  function doLogout()
+  {
+    setShowLoginModal(true)
+  }
+
   let screen
   if (!isPlaying && !hasWon)
   {
@@ -79,9 +87,10 @@ function App() {
 
   return (
     <>
-      {showLoginModal && <LoginModal doLogin={doLogin}></LoginModal>}
+      <GameName></GameName>
+      <Score isPlaying={isPlaying} attempts={attempts}></Score>
+      {showLoginModal ? <LoginModal doLogin={doLogin}></LoginModal> : <NavBar doLogout={doLogout}></NavBar>}
       <div className="flex justify-center items-center h-screen bg-yellow-200">
-        <div className={`font-sancreek text-xl absolute top-8 ${isPlaying ? "visible" : "invisible"}`}>Attempts: {attempts}</div>
         {screen} 
       </div>
     </>
