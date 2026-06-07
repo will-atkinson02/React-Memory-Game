@@ -1,53 +1,12 @@
 const express = require("express")
 const router = express.Router()
 const { scores, accounts } = require("../db/memory")
+const { getScores, addScore, register, login, getAccounts } = require("../controllers/gameController")
 
-router.get("/scores", (req, res) => {
-    res.json({ scores: scores })
-})
-
-router.post("/score", (req, res) => {
-    const { score } = req.body
-
-    scores.push(score)
-
-    res.json({ score: score })
-})
-
-router.post("/register", (req, res) => {
-    const { username, password } = req.body
-
-
-    if (accounts.some(account => account.username === username))
-    {
-        res.json({ allowLogin: false })
-    }
-    else
-    {
-        const newAccount = { username: username, password: password }
-        accounts.push(newAccount)
-        res.json({ allowLogin: true, account: newAccount })
-    }
-
-})
-
-router.post("/login", (req, res) => {
-    const { username, password } = req.body
-    console.log(username, password)
-
-    if (accounts.some(account => account.username === username && account.password === password))
-    {
-        res.json({ allowLogin: true })
-    }
-    else
-    {
-        res.json({ allowLogin: false })
-    }
-
-})
-
-router.get("/accounts", (req, res) => {
-    res.json({ accounts })
-})
+router.get("/scores", getScores)
+router.post("/score", addScore)
+router.post("/register", register)
+router.post("/login", login)
+router.get("/accounts", getAccounts)
 
 module.exports = router
